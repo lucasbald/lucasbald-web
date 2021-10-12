@@ -42,3 +42,9 @@ code:before,
 code:after {
   content: '\`';
 }
+img {
+    margin: auto;
+    width: 100%;
+    max-width:400px;
+    max-height:250px;
+}

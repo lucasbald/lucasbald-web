@@ -1,6 +1,6 @@
 {
-  "name": "create-react-app",
-  "version": "0.1.0",
+  "name": "lucasbald-web",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "react": "^16.6.1",
@@ -9,6 +9,7 @@
   },
   "scripts": {
     "dev": "BROWSER=none react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
