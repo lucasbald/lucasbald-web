@@ -1,57 +1,51 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import './App.css';
-import logo from './assets/lucas-image.jpg'
+import React, { useEffect } from "react";
+import "./App.css";
+import About from "./partials/About";
+import Card from "./partials/Card";
+import Footer from "./partials/Footer";
+import Skills from "./partials/Skills";
+import data from "./assets/data";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
-  const [date, setDate] = useState(null);
-  useEffect(() => {
-    async function getDate() {
-      const res = await fetch('/api/date');
-      const newDate = await res.text();
-      setDate(newDate);
-    }
-    getDate();
-  }, []);
-  
-  return (
-    <main>
-      <h1>LucasBald Web</h1>
+    // const [date, setDate] = useState(null);
+    useEffect(() => {
+        AOS.init({
+            once: true,
+        });
 
-      <img src={logo} alt="Logo" class='logo-image'/>
+        // async function getDate() {
+        //     const res = await fetch("/api/date");
+        //     const newDate = await res.text();
+        //     setDate(newDate);
+        // }
 
-      <h3>
-        Engenheiro de Software
-      </h3>
-      <br />
+        // getDate();
+    });
 
-
-      <p>
-        <a
-          href="https://www.linkedin.com/in/lbaldin/"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Linkedin
-        </a>
-      </p>
-
-      <p>
-        <a
-          href="https://github.com/lucasbald/"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Github
-        </a>
-      </p>
-
-      <br />
-        
-      <h2>The date according to Go is:</h2>
-      <p>{date ? date : 'Loading date...'}</p>
-    </main>
-  );
+    return (
+        <div className="min-h-screen py-10 px-3 sm:px-5 bg-gray-100">
+            <div data-aos="fade-down" data-aos-duration="800">
+                <Card
+                    name={data.name}
+                    title={data.title}
+                    social={data.social}
+                />
+            </div>
+            <div
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="400"
+            >
+                <About
+                    title={data.about.title}
+                    description={data.about.description}
+                />
+                <Skills skills={data.skills} />
+                <Footer github={data.social.github} />
+            </div>
+        </div>
+    );
 }
-
 export default App;

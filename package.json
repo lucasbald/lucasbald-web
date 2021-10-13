@@ -1,23 +1,48 @@
 {
   "name": "lucasbald-web",
+  "description": "Portfolio built with React and Tailwind.",
   "version": "1.0.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
-    "react": "^16.6.1",
-    "react-dom": "^16.6.1",
-    "react-scripts": "^4.0.3"
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "aos": "^2.3.4",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-github-btn": "^1.2.0",
+    "react-icons": "^3.11.0",
+    "react-scripts": "3.4.3"
   },
   "scripts": {
-    "dev": "BROWSER=none react-scripts start",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "npm run watch:css && react-scripts start",
+    "build": "npm run watch:css && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "9.8.6",
+    "postcss-cli": "^8.1.0",
+    "tailwindcss": "^1.9.2"
+  },
+  "peerDependencies": {
+    "postcss": "^8.0.0"
+  }
 }

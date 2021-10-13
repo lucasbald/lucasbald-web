@@ -1,0 +1,6 @@
+This logo was generated using the following font:
+
+- Font Title: Cinzel Decorative
+- Font Author: Copyright  2012 Natanael Gama (info@ndiscovered.com), with Reserved Font Name 'Cinzel'
+- Font Source: http://fonts.gstatic.com/s/cinzeldecorative/v9/daaCSScvJGqLYhG8nNt8KPPswUAPnh7URs1LaCyC.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
