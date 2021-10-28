@@ -6,7 +6,7 @@ function About({ title, description }) {
       <p className="text-2xl md:text-4xl font-bold text-center text-gray-300">
         {title}
       </p>
-      <p className="text-base text-left md:text-center text-gray-500 leading-relaxed mt-4">
+      <p className="text-base text-justify md:text-center text-gray-500 leading-relaxed mt-4">
         {description}
       </p>
     </div>
