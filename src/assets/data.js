@@ -8,7 +8,7 @@ const data = {
     title: "Scrum Master | Senior Software Engineer",
     social: {
         github: "https://github.com/lucasbald",
-        linkedin: "https://www.linkedin.com/in/lbaldin/",
+        linkedin: "https://www.linkedin.com/in/lbaldin",
         email: "lucas.sbaldin@gmail.com",
     },
     about: {

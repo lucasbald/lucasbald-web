@@ -9,41 +9,33 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 function App() {
-    // const [date, setDate] = useState(null);
+    const {
+        name,
+        title,
+        social,
+        skills,
+        about: { title: aboutTitle, description: aboutDescription },
+    } = data;
+
     useEffect(() => {
         AOS.init({
             once: true,
         });
-
-        // async function getDate() {
-        //     const res = await fetch("/api/date");
-        //     const newDate = await res.text();
-        //     setDate(newDate);
-        // }
-
-        // getDate();
     });
 
     return (
         <div className="min-h-screen py-10 px-3 sm:px-5 bg-gray-900">
             <div data-aos="fade-down" data-aos-duration="800">
-                <Card
-                    name={data.name}
-                    title={data.title}
-                    social={data.social}
-                />
+                <Card name={name} title={title} social={social} />
             </div>
             <div
                 data-aos="fade-up"
                 data-aos-duration="800"
                 data-aos-delay="400"
             >
-                <About
-                    title={data.about.title}
-                    description={data.about.description}
-                />
-                <Skills skills={data.skills} />
-                <Footer github={data.social.github} />
+                <About title={aboutTitle} description={aboutDescription} />
+                <Skills skills={skills} />
+                <Footer userName={name} github={social.github} />
             </div>
         </div>
     );
