@@ -14,7 +14,6 @@ function App() {
         title,
         social,
         skills,
-        about: { title: aboutTitle, description: aboutDescription },
     } = data;
 
     useEffect(() => {
@@ -33,7 +32,7 @@ function App() {
                 data-aos-duration="800"
                 data-aos-delay="400"
             >
-                <About title={aboutTitle} description={aboutDescription} />
+                <About />
                 <Skills skills={skills} />
                 <Footer userName={name} github={social.github} />
             </div>
