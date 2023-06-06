@@ -13,7 +13,7 @@ const About = () => {
         <div className="max-w-4xl mx-auto mt-16 text-center">
             <button onClick={() => changeLanguage("pt-BR")}>
                 <img
-                    className="w-8 shadow-xl"
+                    className="w-10 shadow-xl"
                     src={ptBrIcon}
                     alt="pt-BR Icon"
                 />
@@ -21,7 +21,7 @@ const About = () => {
 
             <button onClick={() => changeLanguage("en-US")}>
                 <img
-                    className="w-8 shadow-xl"
+                    className="w-10 shadow-xl"
                     src={enUsIcon}
                     alt="en-US Icon"
                 />
