@@ -27,11 +27,11 @@ const About = () => {
                 />
             </button>
 
-            <p className="text-2xl md:text-4xl font-bold text-center text-gray-300">
+            <p className="text-2xl md:text-4xl font-bold text-center text-gray-200">
                 {t("about.title")}
             </p>
 
-            <p className="text-base text-justify text-gray-500 leading-relaxed mt-4">
+            <p className="text-base text-justify text-gray-300 leading-relaxed mt-4">
                 {t("about.description")
                     .split("\n")
                     .map((line, index) => {
@@ -39,7 +39,7 @@ const About = () => {
 
                         return (
                             <React.Fragment key={index}>
-                                <p className="text-base text-justify text-gray-500 leading-relaxed mt-4">
+                                <p className="text-base text-justify text-gray-300 leading-relaxed mt-4">
                                     {line}
                                 </p>
                             </React.Fragment>
