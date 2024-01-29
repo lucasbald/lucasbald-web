@@ -1,13 +1,11 @@
 import React from "react";
-import profile from "../images/profile.png";
-import { FaGithub } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { FaRegEnvelope } from "react-icons/fa";
+import profile from "../images/lbaldin-profile.jpeg";
+import { FaGithub, FaLinkedin, FaRegEnvelope, FaMediumM } from "react-icons/fa";
 
-const Card = ({ name, title, social: { github, linkedin, email } }) => {
+const Card = ({ name, title, social: { github, linkedin, medium, email } }) => {
     return (
         <div className="w-full">
-            <div className="flex flex-col justify-center max-w-xs mx-auto bg-gray-800 shadow-xl rounded-xl p-5">
+            <div className="flex flex-col justify-center max-w-xs mx-auto bg-gray-700 shadow-xl rounded-xl p-5">
                 <div className="">
                     <img
                         className="w-32 mx-auto shadow-xl rounded-full"
@@ -48,6 +46,14 @@ const Card = ({ name, title, social: { github, linkedin, email } }) => {
                         >
                             <FaRegEnvelope />
                             <span className="sr-only">Email</span>
+                        </a>
+
+                        <a
+                            className="text-xl m-1 p-1 sm:m-2 sm:p-2 text-black-900 hover:bg-gray-500 rounded-full hover:text-white transition-colors duration-300"
+                            href={medium}
+                        >
+                            <FaMediumM />
+                            <span className="sr-only">Medium</span>
                         </a>
                     </div>
                 </div>

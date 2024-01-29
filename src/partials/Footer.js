@@ -3,7 +3,7 @@ import React from "react";
 const Footer = ({ github, userName }) => {
     return (
         <div className="text-center w-full mt-16">
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-200 mb-4">
                 Made with{" "}
                 <span role="img" aria-label="heart">
                     💙
