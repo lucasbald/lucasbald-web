@@ -5,7 +5,7 @@ const BOOTSTRAP_FOR_SKILL_ICON = "text-4xl mx-auto inline-block";
 
 const data = {
     name: "Lucas Baldin",
-    title: "Scrum Master | Senior Software Engineer",
+    title: "Project Manager | Scrum Master",
     social: {
         github: "https://github.com/lucasbald",
         linkedin: "https://www.linkedin.com/in/lbaldin",
