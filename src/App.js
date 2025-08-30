@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import "./App.css";
 
 import About from "./partials/About";
@@ -6,6 +8,7 @@ import Card from "./partials/Card";
 import Footer from "./partials/Footer";
 import Skills from "./partials/Skills";
 import KonamiCode from "./partials/KonamiCode";
+import Voucher from "./partials/Voucher";
 
 import data from "./assets/data";
 import konamiImage from "./images/pangolier.png";
@@ -13,9 +16,8 @@ import konamiImage from "./images/pangolier.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-function App() {
+const Home = () => {
     const { name, title, social, skills } = data;
-
     const [showImage, setShowImage] = useState(false);
 
     const handleKonamiCode = () => {
@@ -23,10 +25,8 @@ function App() {
     };
 
     useEffect(() => {
-        AOS.init({
-            once: true,
-        });
-    });
+        AOS.init({ once: true });
+    }, []);
 
     return (
         <div className="min-h-screen py-10 px-3 sm:px-5 bg-gray-800">
@@ -53,5 +53,17 @@ function App() {
             </div>
         </div>
     );
-}
+};
+
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/voucher" element={<Voucher />} />
+            </Routes>
+        </Router>
+    );
+};
+
 export default App;

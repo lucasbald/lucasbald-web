@@ -1,50 +1,55 @@
 {
-  "name": "lucasbald-web",
-  "description": "Portfolio built with React and Tailwind.",
-  "version": "1.0.0",
-  "homepage": ".",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "aos": "^2.3.4",
-    "i18next": "^22.5.0",
-    "i18next-http-backend": "^2.2.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-github-btn": "^1.2.0",
-    "react-i18next": "^12.3.1",
-    "react-icons": "^3.11.0",
-    "react-router-dom": "^7.8.2",
-    "react-scripts": "3.4.3"
-  },
-  "scripts": {
-    "start": "npm run watch:css && react-scripts --openssl-legacy-provider start",
-    "build": "npm run watch:css && react-scripts --openssl-legacy-provider build",
-    "test": "react-scripts --openssl-legacy-provider test",
-    "eject": "react-scripts --openssl-legacy-provider eject",
-    "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "autoprefixer": "9.8.6",
-    "postcss": "^8.3.9",
-    "postcss-cli": "^8.1.0",
-    "tailwindcss": "^1.9.2"
-  }
+    "name": "lucasbald-web",
+    "description": "Portfolio built with React and Tailwind.",
+    "version": "1.0.0",
+    "homepage": ".",
+    "private": true,
+    "dependencies": {
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "@testing-library/user-event": "^7.1.2",
+        "aos": "^2.3.4",
+        "i18next": "^22.5.0",
+        "i18next-http-backend": "^2.2.1",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-github-btn": "^1.2.0",
+        "react-i18next": "^12.3.1",
+        "react-icons": "^3.11.0",
+        "react-router-dom": "6.22",
+        "react-scripts": "^5.0.1"
+    },
+    "scripts": {
+        "start": "npm run watch:css && react-scripts --openssl-legacy-provider start",
+        "build": "npm run watch:css && react-scripts --openssl-legacy-provider build",
+        "test": "react-scripts --openssl-legacy-provider test",
+        "eject": "react-scripts --openssl-legacy-provider eject",
+        "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
+        "format": "prettier --write .",
+        "format:check": "prettier --check ."
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "autoprefixer": "9.8.6",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-prettier": "^5.5.4",
+        "postcss": "^8.3.9",
+        "postcss-cli": "^8.1.0",
+        "prettier": "^3.6.2",
+        "tailwindcss": "^1.9.2"
+    }
 }

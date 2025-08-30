@@ -10,7 +10,7 @@ const data = {
         github: "https://github.com/lucasbald",
         linkedin: "https://www.linkedin.com/in/lbaldin",
         email: "lucas.sbaldin@gmail.com",
-        medium: "https://medium.com/@lucas.sbaldin"
+        medium: "https://medium.com/@lucas.sbaldin",
     },
     skills: [
         {

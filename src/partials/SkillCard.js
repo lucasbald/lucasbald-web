@@ -13,4 +13,3 @@ const SkillCard = ({ skillName, skillIcon }) => {
 };
 
 export default SkillCard;
-

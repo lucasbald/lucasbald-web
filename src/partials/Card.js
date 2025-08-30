@@ -25,6 +25,7 @@ const Card = ({ name, title, social: { github, linkedin, medium, email } }) => {
                             className="text-xl m-1 p-1 sm:m-2 sm:p-2 text-gray-400 hover:bg-gray-800 rounded-full hover:text-white transition-colors duration-300"
                             href={github}
                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             <FaGithub />
                             <span className="sr-only">Github</span>
@@ -34,6 +35,7 @@ const Card = ({ name, title, social: { github, linkedin, medium, email } }) => {
                             className="text-xl m-1 p-1 sm:m-2 sm:p-2 text-blue-500 hover:bg-blue-500 rounded-full hover:text-white transition-colors duration-300"
                             href={linkedin}
                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             <FaLinkedin />
                             <span className="sr-only">Linkedin</span>
@@ -46,6 +48,7 @@ const Card = ({ name, title, social: { github, linkedin, medium, email } }) => {
                                 email
                             }
                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             <FaRegEnvelope />
                             <span className="sr-only">Email</span>
@@ -55,6 +58,7 @@ const Card = ({ name, title, social: { github, linkedin, medium, email } }) => {
                             className="text-xl m-1 p-1 sm:m-2 sm:p-2 text-black-900 hover:bg-gray-500 rounded-full hover:text-white transition-colors duration-300"
                             href={medium}
                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             <FaMediumM />
                             <span className="sr-only">Medium</span>
