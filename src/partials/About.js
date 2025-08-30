@@ -31,7 +31,7 @@ const About = () => {
                 {t("about.title")}
             </p>
 
-            <p className="text-base text-justify text-gray-300 leading-relaxed mt-4">
+            <div className="text-base text-justify text-gray-300 leading-relaxed mt-4">
                 {t("about.description")
                     .split("\n")
                     .map((line, index) => {
@@ -45,7 +45,7 @@ const About = () => {
                             </React.Fragment>
                         );
                     })}
-            </p>
+            </div>
         </div>
     );
 };
