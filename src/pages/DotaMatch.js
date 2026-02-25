@@ -15,8 +15,6 @@ import {
     getGameModeLabel,
     getLobbyTypeLabel,
     isRadiantPlayer,
-    isRankedMatch,
-    isTurboMatch,
 } from "../utils/dota";
 
 const TeamTable = ({ title, players, heroesMap }) => (
