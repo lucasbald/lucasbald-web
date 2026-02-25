@@ -31,7 +31,7 @@ const DotaHome = () => {
             <section className="max-w-5xl mx-auto space-y-8">
                 <header className="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700">
                     <img
-                        src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/home/logo.png"
+                        src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/dota_footer_logo.png"
                         alt="Dota 2"
                         className="h-12 md:h-16"
                     />
@@ -58,7 +58,7 @@ const DotaHome = () => {
                             onChange={(event) =>
                                 setSearchValue(event.target.value)
                             }
-                            placeholder="Ex: 76561198047007146"
+                            placeholder="Ex: 1234567890"
                             className="w-full rounded-xl px-4 py-3 text-gray-900"
                         />
                         <button
