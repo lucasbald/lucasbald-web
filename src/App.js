@@ -9,6 +9,11 @@ import Footer from "./partials/Footer";
 import Skills from "./partials/Skills";
 import KonamiCode from "./partials/KonamiCode";
 import Voucher from "./partials/Voucher";
+import DotaHome from "./pages/DotaHome";
+import DotaPlayer from "./pages/DotaPlayer";
+import DotaMatch from "./pages/DotaMatch";
+import DotaHeroes from "./pages/DotaHeroes";
+import DotaHeroDetail from "./pages/DotaHeroDetail";
 
 import data from "./assets/data";
 import konamiImage from "./images/pangolier.png";
@@ -61,6 +66,17 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/voucher" element={<Voucher />} />
+                <Route path="/dota" element={<DotaHome />} />
+                <Route path="/dota/heroes" element={<DotaHeroes />} />
+                <Route
+                    path="/dota/heroes/:heroId"
+                    element={<DotaHeroDetail />}
+                />
+                <Route path="/dota/player/:steamId" element={<DotaPlayer />} />
+                <Route
+                    path="/dota/player/:steamId/match/:matchId"
+                    element={<DotaMatch />}
+                />
             </Routes>
         </Router>
     );
