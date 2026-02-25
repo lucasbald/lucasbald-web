@@ -12,6 +12,10 @@ const data = {
         email: "lucas.sbaldin@gmail.com",
         medium: "https://medium.com/@lucas.sbaldin",
     },
+    dota: {
+        name: "Bald3",
+        steamId: "132423849",
+    },
     skills: [
         {
             skillName: "Backend",
