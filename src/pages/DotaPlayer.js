@@ -161,7 +161,7 @@ const DotaPlayer = () => {
                                                                 steamId,
                                                                 match.match_id
                                                             )}
-                                                            className="text-red-400 hover:text-red-300"
+                                                            className="text-blue-300 hover:text-blue-200"
                                                         >
                                                             {match.match_id}
                                                         </Link>
@@ -182,11 +182,10 @@ const DotaPlayer = () => {
                                                         )}
                                                     </td>
                                                     <td
-                                                        className={`py-2 ${
-                                                            won
-                                                                ? "text-green-400"
-                                                                : "text-red-400"
-                                                        }`}
+                                                        className={`py-2 ${won
+                                                            ? "text-green-400"
+                                                            : "text-red-400"
+                                                            }`}
                                                     >
                                                         {won
                                                             ? "Vitória"

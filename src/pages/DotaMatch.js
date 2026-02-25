@@ -222,17 +222,6 @@ const DotaMatch = () => {
                                     label="Início da partida"
                                     value={formatDateTime(match.start_time)}
                                 />
-                                <MatchBadge
-                                    icon={FaCoins}
-                                    label="Fila"
-                                    value={
-                                        isTurboMatch(match.game_mode)
-                                            ? "Turbo"
-                                            : isRankedMatch(match.lobby_type)
-                                              ? "Ranked"
-                                              : "Casual"
-                                    }
-                                />
                             </div>
                         </header>
 

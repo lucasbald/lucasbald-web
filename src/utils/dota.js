@@ -60,6 +60,10 @@ const subtractLargeNumbers = (value, offset) => {
     return result.replace(/^0+/, "") || "0";
 };
 
+const extractHeroName = (str) => {
+    return str.replace('npc_dota_hero_', '');
+}
+
 export const steamIdToAccountId = (steamId) => {
     if (!steamId) {
         return null;
@@ -186,7 +190,7 @@ export const fetchHeroesMap = async (signal) => {
             strGain: hero.str_gain,
             agiGain: hero.agi_gain,
             intGain: hero.int_gain,
-            lore: loreData[hero.name] || "Lore não disponível no momento.",
+            lore: loreData[extractHeroName(hero.name)] || "Lore não disponível no momento.",
         };
 
         return accumulator;

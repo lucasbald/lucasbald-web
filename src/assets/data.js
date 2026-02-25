@@ -13,8 +13,8 @@ const data = {
         medium: "https://medium.com/@lucas.sbaldin",
     },
     dota: {
-        name: "Lucas Baldin",
-        steamId: "76561198047007146",
+        name: "Bald3 バケツ",
+        steamId: "132423849",
     },
     skills: [
         {
