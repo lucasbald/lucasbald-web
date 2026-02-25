@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { fetchHeroesMap } from "../utils/dota";
+import { fetchHeroesMap, getHeroPath } from "../utils/dota";
 
 const DotaHeroes = () => {
     const [heroesMap, setHeroesMap] = useState({});
@@ -65,7 +65,8 @@ const DotaHeroes = () => {
                 <header className="bg-gray-800 rounded-2xl p-6 border border-gray-700 shadow-xl">
                     <h1 className="text-3xl font-bold">Heróis de Dota 2</h1>
                     <p className="text-gray-300 mt-2">
-                        Catálogo de heróis com busca rápida por nome.
+                        Clique no herói para abrir detalhes, lore e status
+                        básicos.
                     </p>
 
                     <div className="mt-4">
@@ -89,9 +90,10 @@ const DotaHeroes = () => {
                 {!loading && !error && (
                     <section className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                         {filteredHeroes.map((hero) => (
-                            <article
+                            <Link
                                 key={hero.id}
-                                className="bg-gray-800 rounded-2xl border border-gray-700 shadow-xl overflow-hidden"
+                                to={getHeroPath(hero.id)}
+                                className="block bg-gray-800 rounded-2xl border border-gray-700 shadow-xl overflow-hidden hover:border-red-500 transition"
                             >
                                 {hero.image ? (
                                     <img
@@ -118,7 +120,7 @@ const DotaHeroes = () => {
                                         </h2>
                                     </div>
                                 </div>
-                            </article>
+                            </Link>
                         ))}
                     </section>
                 )}

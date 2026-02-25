@@ -1,15 +1,25 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { FaCoins, FaTrophy } from "react-icons/fa";
+import {
+    GiBattleAxe,
+    GiBroadsword,
+    GiClockwork,
+    GiStarSwirl,
+} from "react-icons/gi";
 import { Link, useParams } from "react-router-dom";
 
 import {
-    didPlayerWin,
     fetchHeroesMap,
     formatDateTime,
     formatDuration,
+    getGameModeLabel,
+    getLobbyTypeLabel,
     isRadiantPlayer,
+    isRankedMatch,
+    isTurboMatch,
 } from "../utils/dota";
 
-const TeamTable = ({ title, players, heroesMap, radiantWin }) => (
+const TeamTable = ({ title, players, heroesMap }) => (
     <section className="bg-gray-800 rounded-2xl p-6 border border-gray-700 shadow-xl">
         <h2 className="text-2xl font-semibold mb-4">{title}</h2>
         <div className="overflow-x-auto">
@@ -20,18 +30,13 @@ const TeamTable = ({ title, players, heroesMap, radiantWin }) => (
                         <th className="py-2">Jogador</th>
                         <th className="py-2">K / D / A</th>
                         <th className="py-2">LH / DN</th>
-                        <th className="py-2">GPM / XPM</th>
-                        <th className="py-2">Dano em herói</th>
-                        <th className="py-2">Resultado</th>
+                        <th className="py-2">💰 GPM / ✨ XPM</th>
+                        <th className="py-2">⚔️ Dano em herói</th>
                     </tr>
                 </thead>
                 <tbody>
                     {players.map((player) => {
                         const hero = heroesMap[player.hero_id];
-                        const won = didPlayerWin(
-                            player.player_slot,
-                            radiantWin
-                        );
 
                         return (
                             <tr
@@ -66,17 +71,15 @@ const TeamTable = ({ title, players, heroesMap, radiantWin }) => (
                                     {player.last_hits} / {player.denies}
                                 </td>
                                 <td className="py-2">
-                                    {player.gold_per_min} / {player.xp_per_min}
+                                    <div className="flex items-center gap-2">
+                                        <FaCoins className="text-yellow-400" />
+                                        <span>{player.gold_per_min}</span>
+                                        <GiStarSwirl className="text-blue-400 ml-1" />
+                                        <span>{player.xp_per_min}</span>
+                                    </div>
                                 </td>
                                 <td className="py-2">
                                     {player.hero_damage || 0}
-                                </td>
-                                <td
-                                    className={`py-2 ${
-                                        won ? "text-green-400" : "text-red-400"
-                                    }`}
-                                >
-                                    {won ? "Vitória" : "Derrota"}
                                 </td>
                             </tr>
                         );
@@ -85,6 +88,18 @@ const TeamTable = ({ title, players, heroesMap, radiantWin }) => (
             </table>
         </div>
     </section>
+);
+
+const MatchBadge = ({ icon: Icon, label, value, valueClassName = "" }) => (
+    <div className="bg-gray-700/60 rounded-xl p-3 border border-gray-600">
+        <p className="text-xs uppercase tracking-wide text-gray-400 flex items-center gap-2">
+            <Icon />
+            {label}
+        </p>
+        <p className={`text-lg font-semibold mt-1 ${valueClassName}`}>
+            {value}
+        </p>
+    </div>
 );
 
 const DotaMatch = () => {
@@ -174,45 +189,68 @@ const DotaMatch = () => {
                             <h1 className="text-3xl font-bold">
                                 Detalhes da partida #{match.match_id}
                             </h1>
-                            <div className="mt-4 grid md:grid-cols-2 gap-3 text-gray-300">
-                                <p>
-                                    <strong>Vencedor:</strong>{" "}
-                                    {match.radiant_win ? "Radiant" : "Dire"}
-                                </p>
-                                <p>
-                                    <strong>Duração:</strong>{" "}
-                                    {formatDuration(match.duration)}
-                                </p>
-                                <p>
-                                    <strong>Início:</strong>{" "}
-                                    {formatDateTime(match.start_time)}
-                                </p>
-                                <p>
-                                    <strong>Game Mode:</strong>{" "}
-                                    {match.game_mode}
-                                </p>
-                                <p>
-                                    <strong>Lobby Type:</strong>{" "}
-                                    {match.lobby_type}
-                                </p>
-                                <p>
-                                    <strong>Patch:</strong>{" "}
-                                    {match.patch || "N/A"}
-                                </p>
+                            <div className="mt-4 grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                                <MatchBadge
+                                    icon={FaTrophy}
+                                    label="Vencedor"
+                                    value={
+                                        match.radiant_win ? "Radiant" : "Dire"
+                                    }
+                                    valueClassName={
+                                        match.radiant_win
+                                            ? "text-green-400"
+                                            : "text-red-400"
+                                    }
+                                />
+                                <MatchBadge
+                                    icon={GiClockwork}
+                                    label="Duração"
+                                    value={formatDuration(match.duration)}
+                                />
+                                <MatchBadge
+                                    icon={GiBattleAxe}
+                                    label="Modo de jogo"
+                                    value={getGameModeLabel(match.game_mode)}
+                                />
+                                <MatchBadge
+                                    icon={GiBroadsword}
+                                    label="Tipo de lobby"
+                                    value={getLobbyTypeLabel(match.lobby_type)}
+                                />
+                                <MatchBadge
+                                    icon={GiStarSwirl}
+                                    label="Início da partida"
+                                    value={formatDateTime(match.start_time)}
+                                />
+                                <MatchBadge
+                                    icon={FaCoins}
+                                    label="Fila"
+                                    value={
+                                        isTurboMatch(match.game_mode)
+                                            ? "Turbo"
+                                            : isRankedMatch(match.lobby_type)
+                                              ? "Ranked"
+                                              : "Casual"
+                                    }
+                                />
                             </div>
                         </header>
 
                         <TeamTable
-                            title="Radiant"
+                            title={
+                                match.radiant_win
+                                    ? "Radiant (Vencedor)"
+                                    : "Radiant"
+                            }
                             players={radiantPlayers}
                             heroesMap={heroesMap}
-                            radiantWin={match.radiant_win}
                         />
                         <TeamTable
-                            title="Dire"
+                            title={
+                                !match.radiant_win ? "Dire (Vencedor)" : "Dire"
+                            }
                             players={direPlayers}
                             heroesMap={heroesMap}
-                            radiantWin={match.radiant_win}
                         />
                     </>
                 )}

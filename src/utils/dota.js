@@ -2,6 +2,37 @@ const STEAM_ACCOUNT_OFFSET = "76561197960265728";
 const DOTA_CDN_BASE = "https://cdn.cloudflare.steamstatic.com";
 const HEROES_URL =
     "https://cdn.jsdelivr.net/gh/odota/dotaconstants@master/build/heroes.json";
+const HERO_LORE_URL =
+    "https://cdn.jsdelivr.net/gh/odota/dotaconstants@master/build/hero_lore.json";
+
+const GAME_MODE_LABELS = {
+    0: "Unknown",
+    1: "All Pick",
+    2: "Captains Mode",
+    3: "Random Draft",
+    4: "Single Draft",
+    5: "All Random",
+    12: "Least Played",
+    13: "Limited Heroes",
+    16: "Captains Draft",
+    18: "Ability Draft",
+    20: "All Random Deathmatch",
+    22: "Ranked All Pick",
+    23: "Turbo",
+};
+
+const LOBBY_TYPE_LABELS = {
+    0: "Normal",
+    1: "Practice",
+    2: "Tournament",
+    3: "Tutorial",
+    4: "Co-op Bots",
+    5: "Solo Queue",
+    6: "Ranked",
+    7: "Ranked",
+    8: "1v1 Mid",
+    9: "Battle Cup",
+};
 
 const subtractLargeNumbers = (value, offset) => {
     let carry = 0;
@@ -108,21 +139,54 @@ export const didPlayerWin = (playerSlot, radiantWin) =>
 export const getMatchPath = (accountId, matchId) =>
     `/dota/player/${accountId}/match/${matchId}`;
 
-export const fetchHeroesMap = async (signal) => {
-    const response = await fetch(HEROES_URL, { signal });
+export const getHeroPath = (heroId) => `/dota/heroes/${heroId}`;
 
-    if (!response.ok) {
+export const getGameModeLabel = (gameModeId) =>
+    GAME_MODE_LABELS[gameModeId] || `Modo ${gameModeId}`;
+
+export const getLobbyTypeLabel = (lobbyTypeId) =>
+    LOBBY_TYPE_LABELS[lobbyTypeId] || `Lobby ${lobbyTypeId}`;
+
+export const isTurboMatch = (gameModeId) => Number(gameModeId) === 23;
+
+export const isRankedMatch = (lobbyTypeId) =>
+    [6, 7].includes(Number(lobbyTypeId));
+
+export const fetchHeroesMap = async (signal) => {
+    const [heroesResponse, loreResponse] = await Promise.all([
+        fetch(HEROES_URL, { signal }),
+        fetch(HERO_LORE_URL, { signal }),
+    ]);
+
+    if (!heroesResponse.ok || !loreResponse.ok) {
         throw new Error("Falha ao carregar catálogo de heróis");
     }
 
-    const data = await response.json();
+    const [heroesData, loreData] = await Promise.all([
+        heroesResponse.json(),
+        loreResponse.json(),
+    ]);
 
-    return Object.values(data).reduce((accumulator, hero) => {
+    return Object.values(heroesData).reduce((accumulator, hero) => {
         accumulator[hero.id] = {
             id: hero.id,
             name: hero.localized_name,
+            key: hero.name,
             icon: hero.icon ? `${DOTA_CDN_BASE}${hero.icon}` : "",
             image: hero.img ? `${DOTA_CDN_BASE}${hero.img}` : "",
+            primaryAttr: hero.primary_attr,
+            attackType: hero.attack_type,
+            roles: hero.roles || [],
+            baseHealth: hero.base_health,
+            baseMana: hero.base_mana,
+            baseArmor: hero.base_armor,
+            baseAttackMin: hero.base_attack_min,
+            baseAttackMax: hero.base_attack_max,
+            moveSpeed: hero.move_speed,
+            strGain: hero.str_gain,
+            agiGain: hero.agi_gain,
+            intGain: hero.int_gain,
+            lore: loreData[hero.name] || "Lore não disponível no momento.",
         };
 
         return accumulator;
