@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import data from "../assets/data";
 import { buildDotaPlayerPath } from "../utils/dota";
@@ -70,6 +70,20 @@ const DotaHome = () => {
                     </div>
                     {error && <p className="mt-3 text-red-400">{error}</p>}
                 </form>
+
+                <section className="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700">
+                    <h2 className="text-2xl font-semibold">Explorar heróis</h2>
+                    <p className="text-gray-300 mt-2">
+                        Navegue pelo catálogo de heróis com imagens e busca por
+                        nome.
+                    </p>
+                    <Link
+                        to="/dota/heroes"
+                        className="inline-block mt-4 bg-red-600 hover:bg-red-500 rounded-xl px-5 py-3 font-semibold"
+                    >
+                        Abrir página de heróis
+                    </Link>
+                </section>
 
                 <article
                     role="button"
