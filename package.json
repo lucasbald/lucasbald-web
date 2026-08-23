@@ -1,7 +1,7 @@
 {
     "name": "lucasbald-web",
     "description": "Portfolio built with React and Tailwind.",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "homepage": ".",
     "private": true,
     "dependencies": {

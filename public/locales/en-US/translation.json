@@ -1,6 +1,50 @@
 {
     "about": {
         "title": "My Background",
-        "description": "Hi, I’m Lucas — a Project Manager with a strong background in software engineering and a real passion for Agile. Since 2018, I’ve been working with teams of all shapes and sizes, helping them deliver digital solutions that not only work but also create real impact for global brands. \n What I enjoy the most is bringing people together, connecting ideas, and turning complex challenges into simple, valuable outcomes. Along the way, I’ve worn different hats — Software Engineer, QA, Scrum Master, Agile Coach, and Project Manager — and each of them gave me a unique perspective on how to build better teams and better products. \n Outside the frameworks and metrics, I believe good leadership is about empathy, clear communication, and a bit of creativity (and humor!) to keep the team motivated. If you’re curious to know more about my professional side, you’ll find all the details on my LinkedIn — but here, I just wanted to give you a glimpse of the person behind the projects."
+        "description": "Hi, I’m Lucas — a Project Manager with a background in software engineering and a career built around technology, Agile, and people leadership. Since starting my career in 2018, I’ve grown from an intern and software engineer into roles as Scrum Master, Agile leader, and now Project Manager, working with multidisciplinary teams and global clients. \n What I enjoy most is bringing people together, turning complex challenges into clear plans, and helping teams deliver meaningful results. I combine technical knowledge, Agile practices, and project management to connect people, strategy, and execution. \n With an MBA in Project Management and a strong foundation in Agile and technology, I’m passionate about creating impact through better teams, smarter processes, and effective delivery."
+    },
+    "profile": {
+        "education": {
+            "label": "Education",
+            "title": "Technical background with management focus",
+            "items": [
+                {
+                    "degree": "Master of Business Administration in Project Management",
+                    "school": "USP/Esalq, São Paulo, Brazil",
+                    "period": "10/2023 to 07/2025",
+                    "details": "Relevant coursework: Project and People Management. Bachelor thesis: Risk Identification in Software Development Projects."
+                },
+                {
+                    "degree": "Bachelor of Computer Science",
+                    "school": "Unesp, São Paulo, Brazil",
+                    "period": "03/2013 to 07/2019",
+                    "details": "Relevant coursework: Data Structures, Algorithms, and Theory of Computation. Bachelor thesis: Website management using the AEM platform."
+                }
+            ]
+        },
+        "specialties": {
+            "label": "Management",
+            "title": "Specialty areas",
+            "items": [
+                "Digital project management",
+                "Agile, Scrum, and facilitation",
+                "People and stakeholder management",
+                "Software project risk management",
+                "Product delivery for global brands",
+                "Technology and business alignment"
+            ]
+        },
+        "certificates": {
+            "label": "Courses and certificates",
+            "title": "Continuous learning",
+            "items": [
+                {
+                    "name": "PSM I — Professional Scrum Master I",
+                    "issuer": "Scrum.org, USA",
+                    "date": "10/2023",
+                    "url": "https://www.scrum.org/certificates/1019124"
+                }
+            ]
+        }
     }
 }
