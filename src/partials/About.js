@@ -10,7 +10,7 @@ const About = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto mt-16 text-center">
+        <div className="max-w-4xl mx-auto mt-12 text-center portfolio-panel rounded-2xl p-6 sm:p-8">
             <button onClick={() => changeLanguage("pt-BR")}>
                 <img
                     className="w-10 shadow-xl"
@@ -27,11 +27,11 @@ const About = () => {
                 />
             </button>
 
-            <p className="text-2xl md:text-4xl font-bold text-center text-gray-200">
+            <p className="text-2xl md:text-4xl font-bold text-center portfolio-title">
                 {t("about.title")}
             </p>
 
-            <div className="text-base text-justify text-gray-300 leading-relaxed mt-4">
+            <div className="text-base text-justify portfolio-muted leading-relaxed mt-4">
                 {t("about.description")
                     .split("\n")
                     .map((line, index) => {
@@ -39,7 +39,7 @@ const About = () => {
 
                         return (
                             <React.Fragment key={index}>
-                                <p className="text-base text-justify text-gray-300 leading-relaxed mt-4">
+                                <p className="text-base text-justify portfolio-muted leading-relaxed mt-4">
                                     {line}
                                 </p>
                             </React.Fragment>

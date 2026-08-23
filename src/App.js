@@ -7,6 +7,7 @@ import About from "./partials/About";
 import Card from "./partials/Card";
 import Footer from "./partials/Footer";
 import Skills from "./partials/Skills";
+import ProfileHighlights from "./partials/ProfileHighlights";
 import KonamiCode from "./partials/KonamiCode";
 import Voucher from "./partials/Voucher";
 import DotaHome from "./pages/DotaHome";
@@ -24,6 +25,7 @@ import "aos/dist/aos.css";
 const Home = () => {
     const { name, title, social, skills } = data;
     const [showImage, setShowImage] = useState(false);
+    const [theme, setTheme] = useState("light");
 
     const handleKonamiCode = () => {
         setShowImage(true);
@@ -33,8 +35,26 @@ const Home = () => {
         AOS.init({ once: true });
     }, []);
 
+    const toggleTheme = () => {
+        setTheme((currentTheme) =>
+            currentTheme === "light" ? "dark" : "light"
+        );
+    };
+
     return (
-        <div className="min-h-screen py-10 px-3 sm:px-5 bg-gray-800">
+        <div
+            className={`portfolio-page min-h-screen py-8 px-3 sm:px-5 theme-${theme}`}
+        >
+            <div className="max-w-5xl mx-auto flex justify-end mb-6">
+                <button
+                    type="button"
+                    className="theme-toggle"
+                    onClick={toggleTheme}
+                    aria-label="Toggle light and dark theme"
+                >
+                    {theme === "light" ? "Dark mode" : "Light mode"}
+                </button>
+            </div>
             <div data-aos="fade-down" data-aos-duration="800">
                 <Card name={name} title={title} social={social} />
             </div>
@@ -49,10 +69,11 @@ const Home = () => {
                     <img
                         src={konamiImage}
                         alt="Konami"
-                        className="flex flex-col justify-center max-w-xs mx-auto bg-gray-800 shadow-xl rounded-xl p-5"
+                        className="flex flex-col justify-center max-w-xs mx-auto portfolio-panel shadow-xl rounded-xl p-5"
                     />
                 )}
 
+                <ProfileHighlights />
                 <Skills skills={skills} />
                 <Footer userName={name} github={social.github} />
             </div>

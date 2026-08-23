@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaRegEnvelope, FaMediumM } from "react-icons/fa";
 const Card = ({ name, title, social: { github, linkedin, medium, email } }) => {
     return (
         <div className="w-full">
-            <div className="flex flex-col justify-center max-w-xs mx-auto bg-gray-700 shadow-xl rounded-xl p-5">
+            <div className="flex flex-col justify-center max-w-sm mx-auto portfolio-panel rounded-2xl p-6">
                 <div className="">
                     <img
                         className="w-32 mx-auto shadow-xl rounded-full"
@@ -14,10 +14,10 @@ const Card = ({ name, title, social: { github, linkedin, medium, email } }) => {
                     />
                 </div>
                 <div className="text-center mt-5">
-                    <p className="text-xl sm:text-2xl font-semibold text-gray-200">
+                    <p className="text-xl sm:text-3xl font-bold portfolio-title">
                         {name}
                     </p>
-                    <p className="text-xs sm:text-base text-gray-400 pt-2 pb-4 px-5 w-auto inline-block border-b-2">
+                    <p className="text-xs sm:text-base portfolio-muted pt-2 pb-4 px-5 w-auto inline-block border-b-2">
                         {title}
                     </p>
                     <div className="flex align-center justify-center mt-4">
